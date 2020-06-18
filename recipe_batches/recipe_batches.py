@@ -3,7 +3,31 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  A = ingredients
+  B = recipe
+  Alist = []
+  Blist = []
+
+  for v in A:
+    Alist.append(v)
+
+  for v in B:
+    Blist.append(v)
+
+  Aset = set(Alist)
+  Bset = set(Blist)
+
+  if Bset.issubset(Aset):
+    batches = []
+    for i in Alist:
+      batches.append(A[i] // B[i])
+
+    batches = set(batches)
+
+    return min(batches)
+  else:
+    return 0 
+
 
 
 if __name__ == '__main__':
